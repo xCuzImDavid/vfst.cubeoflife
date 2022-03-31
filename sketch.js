@@ -11,10 +11,10 @@ let rows;
 let resolution = 10;
 
 function setup() {
-    createCanvas(700, 600);
+    createCanvas(700, 600, WEBGL);
     cols = width / resolution;
     rows = height / resolution;
-    drawer = new GridDraw2D(resolution);
+    drawer = new GridDraw3D(resolution);
     frameRate(100);
 
 
@@ -28,6 +28,7 @@ function setup() {
 
 function draw() {
     background(0);
+    rotateY(millis() / 1000);
     drawer.draw(grid);
 
 grid = grid.iterateGameframe();
